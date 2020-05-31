@@ -1,0 +1,16 @@
+#! /bin/bash -eu
+
+aws dynamodb delete-table \
+    --table-name Project_yutingli \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+aws dynamodb delete-table \
+    --table-name Project_yutingli_backup_restore \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+aws dynamodb delete-table \
+    --table-name Project_yutingli_point_in_time_restore \
+    --profile aws-training-profile \
+    --region ap-southeast-1

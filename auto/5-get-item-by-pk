@@ -1,0 +1,10 @@
+#! /bin/bash -eu
+
+aws dynamodb get-item \
+    --table-name Project_yutingli \
+    --key '{
+                "projectName": {"S": "project name 1"},
+                "projectType": {"S": "small"}
+           }' \
+    --profile aws-training-profile \
+    --region ap-southeast-1

@@ -1,0 +1,16 @@
+#! /bin/bash -eu
+
+aws dynamodb update-item \
+    --table-name Project_yutingli \
+    --key '{
+               "projectName": {"S": "project name 4"},
+               "projectType": {"S": "small"}
+           }' \
+    --update-expression "SET memberName = :m, startDate = :s" \
+    --expression-attribute-values '{
+                ":m": { "S": "yuting" },
+                ":s": { "S": "2020-01-01" }
+            }' \
+    --return-values ALL_NEW \
+    --profile aws-training-profile \
+    --region ap-southeast-1

@@ -1,0 +1,7 @@
+#! /bin/bash -eu
+
+aws dynamodb restore-table-from-backup \
+    --target-table-name Project_yutingli_backup_restore \
+    --backup-arn arn:aws:dynamodb:ap-southeast-1:494526681395:table/Project_yutingli/backup/01590851950666-773de03e \
+    --profile aws-training-profile \
+    --region ap-southeast-1

@@ -1,0 +1,8 @@
+#! /bin/bash -eu
+
+aws dynamodb restore-table-to-point-in-time \
+    --source-table-name Project_yutingli \
+    --target-table-name Project_yutingli_point_in_time_restore \
+    --restore-date-time 1590852782.0 \
+    --profile aws-training-profile \
+    --region ap-southeast-1

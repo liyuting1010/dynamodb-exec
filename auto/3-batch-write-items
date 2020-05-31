@@ -1,0 +1,6 @@
+#! /bin/bash -eu
+
+aws dynamodb batch-write-item \
+    --request-items file://param/items.json \
+    --profile aws-training-profile \
+    --region ap-southeast-1

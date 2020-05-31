@@ -1,0 +1,19 @@
+#! /bin/bash -eu
+
+aws dynamodb update-continuous-backups \
+    --table-name Project_yutingli \
+    --point-in-time-recovery-specification PointInTimeRecoveryEnabled=true \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+# Output
+# {
+#     "ContinuousBackupsDescription": {
+#         "ContinuousBackupsStatus": "ENABLED",
+#         "PointInTimeRecoveryDescription": {
+#             "PointInTimeRecoveryStatus": "ENABLED",
+#             "EarliestRestorableDateTime": 1590852782.0,
+#             "LatestRestorableDateTime": 1590852782.0
+#         }
+#     }
+# }

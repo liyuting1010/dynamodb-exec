@@ -1,0 +1,7 @@
+#! /bin/bash -eu
+
+aws dynamodb create-backup \
+    --table-name Project_yutingli \
+    --backup-name Project_yutingli_backup \
+    --profile aws-training-profile \
+    --region ap-southeast-1

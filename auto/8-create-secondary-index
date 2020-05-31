@@ -1,0 +1,78 @@
+#! /bin/bash -eu
+
+aws dynamodb update-table \
+    --attribute-definitions AttributeName=memberName,AttributeType=S \
+    --table-name Project_yutingli \
+    --global-secondary-index-updates '[{"Create":{"IndexName":"memberName-index","KeySchema":[{"AttributeName":"memberName","KeyType":"HASH"}],"Projection":{"ProjectionType":"ALL"}}}]' \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+# Output
+# {
+#     "TableDescription": {
+#         "AttributeDefinitions": [
+#             {
+#                 "AttributeName": "memberName",
+#                 "AttributeType": "S"
+#             },
+#             {
+#                 "AttributeName": "projectName",
+#                 "AttributeType": "S"
+#             },
+#             {
+#                 "AttributeName": "projectType",
+#                 "AttributeType": "S"
+#             }
+#         ],
+#         "TableName": "Project_yutingli",
+#         "KeySchema": [
+#             {
+#                 "AttributeName": "projectName",
+#                 "KeyType": "HASH"
+#             },
+#             {
+#                 "AttributeName": "projectType",
+#                 "KeyType": "RANGE"
+#             }
+#         ],
+#         "TableStatus": "UPDATING",
+#         "CreationDateTime": 1590840044.452,
+#         "ProvisionedThroughput": {
+#             "NumberOfDecreasesToday": 0,
+#             "ReadCapacityUnits": 0,
+#             "WriteCapacityUnits": 0
+#         },
+#         "TableSizeBytes": 0,
+#         "ItemCount": 0,
+#         "TableArn": "arn:aws:dynamodb:ap-southeast-1:494526681395:table/Project_yutingli",
+#         "TableId": "97687523-990c-4ccd-9fc4-d37d4844f425",
+#         "BillingModeSummary": {
+#             "BillingMode": "PAY_PER_REQUEST",
+#             "LastUpdateToPayPerRequestDateTime": 1590840044.452
+#         },
+#         "GlobalSecondaryIndexes": [
+#             {
+#                 "IndexName": "memberName-index",
+#                 "KeySchema": [
+#                     {
+#                         "AttributeName": "memberName",
+#                         "KeyType": "HASH"
+#                     }
+#                 ],
+#                 "Projection": {
+#                     "ProjectionType": "ALL"
+#                 },
+#                 "IndexStatus": "CREATING",
+#                 "Backfilling": false,
+#                 "ProvisionedThroughput": {
+#                     "NumberOfDecreasesToday": 0,
+#                     "ReadCapacityUnits": 0,
+#                     "WriteCapacityUnits": 0
+#                 },
+#                 "IndexSizeBytes": 0,
+#                 "ItemCount": 0,
+#                 "IndexArn": "arn:aws:dynamodb:ap-southeast-1:494526681395:table/Project_yutingli/index/memberName-index"
+#             }
+#         ]
+#     }
+# }

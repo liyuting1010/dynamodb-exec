@@ -1,0 +1,24 @@
+#! /bin/bash -eu
+
+aws dynamodb update-item \
+    --table-name Project_yutingli \
+    --key '{
+        "projectName": {"S":"project name 4"},
+        "projectType": {"S":"medium"}
+    }' \
+    --attribute-updates '{
+        "memberName": {
+            "Action": "PUT",
+            "Value": {"S":"yuting"}
+        },
+        "startDate": {
+            "Action": "PUT",
+            "Value": {"S":"2020-05-30"}
+        }
+    }' \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+# Note:
+#  1. ADD action is not supported for the type S
+#  2. is there any way add these attributes without put item

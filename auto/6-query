@@ -1,0 +1,13 @@
+#! /bin/bash -eu
+
+aws dynamodb query \
+    --table-name Project_yutingli \
+    --key-condition-expression 'projectName = :name and projectType = :type' \
+    --expression-attribute-values '{
+                                        ":name": {"S": "project name 1"},
+                                        ":type": {"S": "small"}
+                                    }' \
+    --profile aws-training-profile \
+    --region ap-southeast-1
+
+# Questions: how to query item by no key attribute?

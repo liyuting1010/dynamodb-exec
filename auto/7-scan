@@ -1,0 +1,10 @@
+#! /bin/bash -eu
+
+aws dynamodb scan \
+    --table-name Project_yutingli \
+    --filter-expression 'memberName = :member' \
+    --expression-attribute-values '{
+                                        ":member": {"S": "yuting"}
+                                    }' \
+    --profile aws-training-profile \
+    --region ap-southeast-1
