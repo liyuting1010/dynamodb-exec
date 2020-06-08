@@ -6,6 +6,13 @@ AWS.config.update({
     region: 'ap-southeast-1',
 });
 
+if (process.env.ENV === 'docker') {
+    console.log("++++++++++++++++++++++");
+    AWS.config.update({
+        endpoint: 'http://dynamodb',
+    });
+}
+
 const documentClient = new AWS.DynamoDB.DocumentClient();
 const documentName = 'Project_yutingli';
 

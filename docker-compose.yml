@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  app:
+    image: "node:10-slim"
+    depends_on:
+      - dynamodb
+    ports:
+      - "8888:8888"
+    volumes:
+      - ${HOME}/.aws/credentials:/root/.aws/credentials
+      - .:/app
+    working_dir: /app
+    command: "npm run start"
+    environment:
+      ENV: "docker"
+
+  dynamodb:
+    image: "amazon/dynamodb-local"
+    ports:
+      - "8041:8000"
