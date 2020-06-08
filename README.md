@@ -18,25 +18,25 @@
 #### CRUD
 - [x] query all yuting's items
 ```bash
-curl -i http://localhost:3000/projects
+curl -i http://localhost:8888/projects
 ```
 - [x] create a item
 ```bash
-curl -X POST http://localhost:3000/projects \
+curl -X POST http://localhost:8888/projects \
      -d '{"projectName":"test for api", "projectType":"small", "memberName":"yuting"}' \
      -H "Content-Type: application/json"
 ```
 - [x] find a item
 ```bash
-curl -i http://localhost:3000/projects/test%20for%20api/small 
+curl -i http://localhost:8888/projects/test%20for%20api/small 
 ```
 - [x] update a item
 ```bash
-curl -X PUT http://localhost:3000/projects/test%20for%20api/small \
+curl -X PUT http://localhost:8888/projects/test%20for%20api/small \
      -d '{"memberName":"yuting"}' \
      -H "Content-Type: application/json"
 ```
 - [x] delete a item
 ```bash
-curl -X DELETE http://localhost:3000/projects/test%20for%20api/small
+curl -X DELETE http://localhost:8888/projects/test%20for%20api/small
 ```
